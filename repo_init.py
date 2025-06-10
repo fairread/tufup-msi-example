@@ -1,5 +1,4 @@
 import logging
-
 from tufup.repo import Repository
 
 from myapp.settings import APP_NAME
