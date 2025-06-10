@@ -30,7 +30,7 @@ See `src/myapp/__init__.py` for details.
 
 The dummy application is bundled using [cx_Freeze][3], but `tufup` works with any type of "application bundle" (i.e. just a directory with content representing the application).
 
-The example includes a basic `setup.py` file that ensures the `tufup` root metadata file (`root.json`) is included in the application bundle.
+The example includes a basic `build.py` file that ensures the `tufup` root metadata file (`root.json`) is included in the application bundle.
 
 The dummy *application* specifies where all `tufup`-related  files will be stored.
 This is illustrated in `settings.py`. 
@@ -73,15 +73,15 @@ setup_repo.bat
 This script will automatically:
 1. Install all required packages using pip:
    - Install the project in editable mode
-   - Install all dependencies from pyproject.toml
+   - Install all dependencies
 2. Initialize the repository
 3. Create version 1.0:
    - Set version to 1.0
-   - Build the MSI installer
+   - Build the MSI installer using cx_Freeze
    - Add the bundle to repository
 4. Create version 2.0:
    - Set version to 2.0
-   - Build the MSI installer
+   - Build the MSI installer using cx_Freeze
    - Add the bundle to repository
 5. Start the HTTP server
 

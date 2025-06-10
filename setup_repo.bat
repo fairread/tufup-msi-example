@@ -8,6 +8,9 @@ set "DIST_DIR_MAIN=%DIST_DIR%\main"
 set "KEYSTORE_DIR=%APP_DIR%\keystore"
 set "REPO_DIR=%APP_DIR%\repository"
 
+REM Add src directory to PYTHONPATH
+set "PYTHONPATH=%PYTHONPATH%;%~dp0src"
+
 echo Setting up tufup repository...
 
 REM Initialize repository
@@ -26,7 +29,7 @@ REM Create version 1.0
 echo.
 echo Step 2: Creating version 1.0...
 if not exist "%DIST_DIR_MAIN%" mkdir "%DIST_DIR_MAIN%"
-python setup.py bdist_msi --app-dir "%APP_DIR%"
+python build.py bdist_msi --app-dir "%APP_DIR%"
 if errorlevel 1 (
     echo Failed to build version 1.0
     exit /b 1
@@ -48,7 +51,7 @@ REM Create version 2.0
 echo.
 echo Step 4: Creating version 2.0...
 if not exist "%DIST_DIR%" mkdir "%DIST_DIR%"
-python setup.py bdist_msi --app-dir "%APP_DIR%"
+python build.py bdist_msi --app-dir "%APP_DIR%"
 if errorlevel 1 (
     echo Failed to build version 2.0
     exit /b 1
